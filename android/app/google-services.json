@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "622876856342",
+    "project_id": "building-code-generator",
+    "storage_bucket": "building-code-generator.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:622876856342:android:2e01025624539f5416e537",
+        "android_client_info": {
+          "package_name": "com.example.building_code_gen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "622876856342-j1gpvsm824obrcfkkjmngee16lmpemh3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1tnugCSGhKr-MO44gDQ_83opOtTPySvY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "622876856342-j1gpvsm824obrcfkkjmngee16lmpemh3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
