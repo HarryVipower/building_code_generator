@@ -13,7 +13,7 @@ Future<List<Building>> getBuildings() async {
 
   var query = await collection.get().then((value) {
     for (var i in value.docs) {
-      list.add(Building(name: i.get('name'), code: i.get('code')));
+      list.add(Building(name: i.get('name'), code: i.get('code'), company: i.get('company')));
     }
   });
 

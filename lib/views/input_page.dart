@@ -20,6 +20,7 @@ class InputBuildingName extends StatefulWidget {
 
 class _InputBuildingNameState extends State<InputBuildingName> {
   TextEditingController buildingNameController = TextEditingController();
+  TextEditingController companyController = TextEditingController();
 
   Widget buildingNameInput() {
 
@@ -33,6 +34,14 @@ class _InputBuildingNameState extends State<InputBuildingName> {
             controller: buildingNameController,
           ),
         ),
+        const SizedBox(height: 12,),
+        const Text('Input company name:', textAlign: TextAlign.left,),
+        SizedBox(
+          width: 300, height: 50,
+          child: TextFormField(
+            controller: companyController,
+          ),
+        )
       ],
     );
   }
@@ -41,7 +50,13 @@ class _InputBuildingNameState extends State<InputBuildingName> {
 
     return ElevatedButton(
       onPressed: () async {
-        await addBuilding(buildingNameController.text!, context);
+        //Check that both fields are filled
+        if (buildingNameController.text == '' || companyController.text == '') {
+          showSnackBar('Both fields must be filled!', context);
+          return;
+        }
+
+        await addBuilding(buildingNameController.text!, companyController.text!, context);
         FocusManager.instance.primaryFocus?.unfocus();
         setState(() {
           buildingNameController.text = '';

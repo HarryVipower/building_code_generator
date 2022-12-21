@@ -16,7 +16,7 @@ void loadingDialog(BuildContext context) {
 String generateCode() {
   int len = 3;
   var r = m.Random();
-  const _chars = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890';
+  const _chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
   return List.generate(len, (index) => _chars[r.nextInt(_chars.length)]).join();
 }
 

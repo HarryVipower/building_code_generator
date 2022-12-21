@@ -16,6 +16,7 @@ Future<Response> pushToFirestore(Building building) async {
 
   Map<String, dynamic> data = <String, dynamic>{
     'name': building.name!,
+    'company': building.company!,
     'code': building.code!
   };
 
@@ -31,14 +32,14 @@ Future<Response> pushToFirestore(Building building) async {
   return response;
 }
 
-Future<void> addBuilding(String buildingName, BuildContext context) async {
+Future<void> addBuilding(String buildingName, String company, BuildContext context) async {
   loadingDialog(context);
   String code = generateCode();
 
   //check code uniqueness
   code = await checkCode(code, context);
 
-  Building building = createBuilding(buildingName, code);
+  Building building = createBuilding(buildingName, code, company);
   await pushToFirestore(building);
   Navigator.pop(context);
   showSnackBar('$buildingName added! Generated 3 digit code: $code.', context);

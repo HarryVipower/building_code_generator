@@ -55,7 +55,8 @@ class _ListBuildingsPageState extends State<ListBuildingsPage> {
     if (searchController.text != '') {
       for (var i in allResults) {
         var name = i.name!.toLowerCase();
-        if (name.contains(searchController.text.toLowerCase())) {
+        var company = i.company!.toLowerCase();
+        if (name.contains(searchController.text.toLowerCase()) || company.contains(searchController.text.toLowerCase())) {
           showResults.add(i);
         }
       }
@@ -87,7 +88,7 @@ class _ListBuildingsPageState extends State<ListBuildingsPage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Flexible(flex: 1, child: Text('Search Buildings:')),
+            const Flexible(flex: 1, child: Text('Search Buildings:')),
             Flexible(flex:1, child: Container(
               width: double.infinity,
               height: 75,
@@ -111,6 +112,9 @@ class _ListBuildingsPageState extends State<ListBuildingsPage> {
               children: [
                 Text('Name:', style: headerStyle,),
                 Text(building.name!, style: contentStyle,),
+                const SizedBox(height: 12,),
+                Text('Company:', style: headerStyle,),
+                Text(building.company!, style: contentStyle,),
                 const SizedBox(height: 12,),
                 Text('Code:', style: headerStyle,),
                 Text(building.code!, style: contentStyle,),
